@@ -1,0 +1,42 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+// Function to rotate a number by k positions to the right (or left if k is negative)
+long long rotateNumber(long long n, int k) {
+    int numDigits = log10(n) + 1; // Calculate the number of digits in n
+
+    // Normalize k to be within the range of 0 to numDigits-1
+    k = k % numDigits;
+
+    if (k < 0) {
+        // If k is negative, rotate to the left (add leftmost digits to the right)
+        k = numDigits + k;
+    }
+
+    // Calculate the divisor and multiplier to split and rearrange the number
+    long long divisor = pow(10, k);
+    long long multiplier = pow(10, numDigits - k);
+
+    // Calculate the rotated number
+    long long rotatedNumber = (n % divisor) * multiplier + (n / divisor);
+
+    return rotatedNumber;
+}
+
+int main() {
+    long long n;
+    int k;
+
+    cout << "Enter a number (n): ";
+    cin >> n;
+    cout << "Enter the number of positions to rotate (k): ";
+    cin >> k;
+
+    long long rotatedNumber = rotateNumber(n, k);
+
+    cout << "Rotated number is: " << rotatedNumber << endl;
+
+    return 0;
+}

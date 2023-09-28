@@ -17,17 +17,6 @@ int main() {
     }
 
     cout << "Number of digits: " << digitCount << endl;
-
-    // Extract and print the digits in reverse order
-    cout << "Digits in the number (in reverse order): ";
-    while (n != 0) {
-        int digit = n % 10;
-        cout << digit << " ";
-        n /= 10;
-    }
-
-    cout << endl;
-
     return 0;
 }
 

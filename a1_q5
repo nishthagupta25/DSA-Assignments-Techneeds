@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    long long n; // Using long long to handle large numbers
+    cout << "Enter a number: ";
+    cin >> n;
+
+    int digitCount = 0;
+    long long temp = n; // Store the number in a temporary variable
+
+    // Count the number of digits by dividing by 10 until the number becomes 0
+    while (temp != 0) {
+        digitCount++;
+        temp /= 10;
+    }
+
+    cout << "Number of digits: " << digitCount << endl;
+
+    // Extract and print the digits in reverse order
+    cout << "Digits in the number (in reverse order): ";
+    while (n != 0) {
+        int digit = n % 10;
+        cout << digit << " ";
+        n /= 10;
+    }
+
+    cout << endl;
+
+    return 0;
+}
+
+
+

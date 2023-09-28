@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    long long n; // Using long long to handle large numbers
+    cout << "Enter a number: ";
+    cin >> n;
+
+    cout << "Digits in reverse order (line-wise):" << endl;
+
+    // Extract and print the digits in reverse order
+    while (n != 0) {
+        int digit = n % 10;
+        cout << digit << endl;
+        n /= 10;
+    }
+
+    return 0;
+}

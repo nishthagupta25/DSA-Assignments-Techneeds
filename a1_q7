@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Function to calculate the inverse of a number
+int calculateInverse(int n) {
+    vector<int> digits; // Store the digits of the number
+    int inverse = 0; // Initialize the inverse to 0
+    int position = 1; // Initialize the position to 1
+
+    // Extract digits from the number and store them in reverse order
+    while (n != 0) {
+        int digit = n % 10;
+        digits.push_back(digit);
+        n /= 10;
+    }
+
+    // Calculate the inverse by assigning the digits to their respective positions
+    for (int i = digits.size() - 1; i >= 0; i--) {
+        inverse += position * digits[i];
+        position *= 10;
+    }
+
+    return inverse;
+}
+
+int main() {
+    int n;
+    cout << "Enter a number (following constraints): ";
+    cin >> n;
+
+    int inverse = calculateInverse(n);
+
+    cout << "Inverse of the number is: " << inverse << endl;
+
+    return 0;
+}
